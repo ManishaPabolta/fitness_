@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Fitness</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages/login.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container auth-page">
+    <h2>Login</h2>
+    <form id="login-form" novalidate>
+      <label>Email
+        <input type="email" id="login-email" required placeholder="you@example.com" />
+      </label>
+
+      <label>Password
+        <div class="pw-field">
+          <input type="password" id="login-password" required minlength="6" placeholder="Your password" />
+          <button type="button" class="pw-toggle" data-target="login-password">Show</button>
+        </div>
+      </label>
+
+      <label class="inline"><input type="checkbox" id="remember-me" /> Remember me (stay signed in)</label>
+
+      <button class="btn" type="submit">Login</button>
+      <p>Don't have an account? <a href="signup.html">Signup</a></p>
+      <p id="login-msg" class="msg"></p>
+    </form>
+  </main>
+
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('login-form');
+      const msg = document.getElementById('login-msg');
+
+      document.querySelector('.pw-toggle').addEventListener('click', function () {
+        const t = this.dataset.target;
+        const el = document.getElementById(t);
+        if (el.type === 'password') { el.type = 'text'; this.textContent = 'Hide'; }
+        else { el.type = 'password'; this.textContent = 'Show'; }
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+        const remember = document.getElementById('remember-me').checked;
+        const res = auth.login(email, password, remember);
+        if (res.success) { location.href = 'pages/dashboard.html'; }
+        else { msg.textContent = res.msg; }
+      });
+
+      // Auto redirect if already logged in
+      if (auth.isAuthenticated()) { location.href = 'pages/dashboard.html'; }
+    });
+  </script>
+</body>
+</html>

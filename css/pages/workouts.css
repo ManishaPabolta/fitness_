@@ -1,0 +1,27 @@
+/* Workouts list page overrides */
+@import url('../styles.css');
+.workout-list{gap:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.workout img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+.chips{display:flex;gap:8px}
+.workouts-top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
+.stats-bar{display:flex;gap:12px}
+.top-actions{display:flex;gap:12px;align-items:center}
+.search-input{padding:12px;border-radius:12px;border:1px solid rgba(10,20,30,0.04);min-width:220px}
+.plan-card .btn.ghost{padding:8px 12px}
+.badge-tag{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;font-size:12px;margin-right:6px}
+.card .meta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.quick-start{position:absolute;right:12px;top:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:8px 10px;border-radius:10px;font-weight:600}
+.modal .dialog{width:min(520px,96%)}
+.toast{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 12px 36px rgba(12,20,40,0.12);display:none}
+.toast.show{display:block}
+.empty-state img{opacity:0.95;filter:grayscale(10%)}
+@media(max-width:700px){.workout-list{grid-template-columns:repeat(1,1fr)} .workouts-top{flex-direction:column;align-items:flex-start} .top-actions{width:100%;justify-content:space-between}
+
+  .workout-list{display:flex;overflow-x:auto;padding-bottom:8px;gap:12px}
+  .workout-list .workout.card{min-width:300px;flex:0 0 auto}
+ 
+  .filters-row{position:sticky;top:74px;z-index:12;background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));padding:8px 0}
+ 
+  #mobile-plan-btn{display:block}
+  .filters{display:flex;overflow-x:auto;gap:8px}
+} 

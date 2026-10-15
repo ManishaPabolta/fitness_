@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diet & Nutrition - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/diet.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1>Diet & Nutrition</h1>
+
+   
+    <section class="diet-intro reveal">
+    <div class="diet-grid">
+  <!-- Balanced meals -->
+  <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?crop=entropy&cs=tinysrgb&fit=max&w=400&q=80" alt="Balanced meals" />
+
+  <!-- Weekly meal plan -->
+  <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&w=400&q=80" alt="Weekly meal plan" />
+
+  <!-- Plate portions -->
+  <img src="https://uploads.onecompiler.io/44cwzqjd6/44cwzqtvp/images.jpg" alt="Plate portions" />
+</div>
+
+
+      <div style="margin-top:12px">
+        <p class="muted">A sustainable diet is simple: focus on whole foods, manage energy intake relative to goals, and prioritise protein, vegetables and hydration. Below you'll find practical plans, recipes with ingredients, and tools to personalise daily energy needs.</p>
+      </div>
+    </section>
+
+    <section class="calories reveal">
+      <h3>Calorie Calculator</h3>
+      <p class="muted">Estimate daily energy needs and suggested macros. Fill the form and get tailored targets — use as a starting point and adjust based on energy and progress.</p>
+      <form id="cal-form">
+        <label>Weight (kg)<input id="c-weight" required /></label>
+        <label>Height (cm)<input id="c-height" required /></label>
+        <label>Age<input id="c-age" type="number" required /></label>
+        <label>Gender<select id="c-gender"><option>Male</option><option>Female</option></select></label>
+        <label>Activity level<select id="c-activity"><option value="Sedentary">Sedentary</option><option value="Light">Light</option><option value="Moderate">Moderate</option><option value="Active">Active</option></select></label>
+        <label>Goal<select id="c-goal"><option value="Maintain">Maintain</option><option value="Lose">Lose</option><option value="Gain">Gain</option></select></label>
+        <button class="btn" type="submit">Calculate</button>
+      </form>
+      <div id="cal-result"></div>
+      <div id="personal-note" class="small muted" style="margin-top:8px"></div>
+      <div style="margin-top:8px"><a class="btn ghost" href="../pages/profile.html">Quick BMI calculator & profile</a> <button id="join-challenge-diet" class="btn ghost">Join Challenge</button></div>
+    </section>
+
+  
+    <section class="diet-filters reveal">
+      <h3>Filter plans</h3>
+      <div class="filters">
+        <button class="chip active" data-filter="All">All</button>
+        <button class="chip" data-filter="Veg">Vegetarian</button>
+        <button class="chip" data-filter="NonVeg">Non-veg</button>
+      </div>
+    </section>
+
+    
+    <section class="sample-plans reveal">
+      <h3>Sample Plans</h3>
+      <div id="sample-plans-list" class="cards"></div>
+    </section>
+
+
+    <section class="nutrition-cards reveal">
+      <h3>Nutrition Cards</h3>
+      <div id="nutrition-cards" class="cards"></div>
+    </section>
+
+  
+    <section class="water reveal">
+      <h3>Water Tracker</h3>
+      <div>Today: <span id="water-val">0 glasses</span></div>
+      <div class="small muted">Tip: Aim for 30–35 ml per kg of bodyweight (rough guideline). Carry a refillable bottle and set reminders.</div>
+      <button id="water-add" class="btn">Add 1 glass</button>
+    </section>
+
+  <section class="recipes reveal">
+  <h3>✨ Recipe Gallery</h3>
+  <p class="muted">Add recipes and manage them like a gallery</p>
+
+  <!-- FORM -->
+  <form id="recipe-form" class="recipe-form">
+    <label>
+      Recipe Image
+      <input id="r-img" type="file" accept="image/*" />
+    </label>
+
+    <label>
+      Recipe Name
+      <input id="r-name" required />
+    </label>
+
+    <label>
+      Calories
+      <input id="r-cal" type="number" required />
+    </label>
+
+    <label>
+      Ingredients (comma separated)
+      <input id="r-ings" required />
+    </label>
+
+    <button class="btn" type="submit">➕ Add Recipe</button>
+  </form>
+
+  <!-- GALLERY -->
+  <div id="recipe-list" class="recipe-gallery"></div>
+</section>
+
+    <section class="grocery reveal">
+      <h3>Grocery List</h3>
+      <form id="g-form">
+        <label>Item<input id="g-item" required /></label>
+        <button class="btn" type="submit">Add</button>
+      </form>
+      <ul id="g-list"></ul>
+    </section>
+
+    <section class="tips reveal" style="margin-top:12px">
+      <h3>Diet Tips</h3>
+      <ul>
+        <li><strong>What:</strong> Balance protein, carbs and fats — aim for a modest calorie deficit (~300-500 kcal/day) to lose weight safely.</li>
+        <li><strong>Why:</strong> Manage hunger and preserve muscle mass by prioritising protein and fibre-rich foods.</li>
+        <li><strong>How much:</strong> Protein target: ~1.2–1.8 g/kg depending on goal; fats: ~20–30% calories; rest from carbs.</li>
+        <li><strong>How:</strong> Use simple swaps (whole grains, lean proteins, more veg), plan 2–3 batch-cook sessions per week, track portions for 2 weeks to learn patterns.</li>
+      </ul>
+    </section>
+
+  </main>
+  </main>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/diet.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){ const b = document.getElementById('join-challenge-diet'); if (b) b.addEventListener('click', ()=>{ window.dashboard && dashboard.joinChallenge && dashboard.joinChallenge('weekly-burn-1000'); location.href='/pages/dashboard.html'; }); });
+  </script>
+</body>
+</html>

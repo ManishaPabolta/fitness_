@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sports - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/sports.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="sports-hero hero" style="background-image:url('https://uploads.onecompiler.io/44cwzqjd6/44d3wgvqc/sport-athletes-action-grand-arena-600nw-2678985273.webp');background-size:cover;background-position:center">
+      <div class="hero-inner">
+        <h1 class="hero-title">Train Smart. Play Better.</h1>
+        <p class="hero-sub">Sport-specific training, drills and recovery plans to boost your speed, agility and game intelligence.</p>
+        <div class="hero-ctas" style="margin-top:12px">
+          <a class="btn btn-cta" href="#categories">Explore Sports</a>
+          <button id="start-training-hero" class="btn ghost">Start Training</button>
+          <div class="small muted">⚽ 🏏 🏸</div>
+        </div>
+        <div style="margin-top:12px"><em class="small muted">Animated: <span id="hero-sport-anim">Speed • Agility • Power</span></em></div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTERS -->
+    <section class="filters-bar" style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <input id="sport-search" class="input" placeholder="Search sports, e.g., cricket, football" style="flex:1;min-width:220px" />
+      <select id="filter-type" class="input small"><option value="all">All</option><option value="outdoor">Outdoor</option><option value="indoor">Indoor</option></select>
+      <select id="filter-diff" class="input small"><option value="all">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select>
+      <select id="sort-by" class="input small"><option value="popularity">Sort: Popular</option><option value="new">Sort: New</option><option value="alpha">Sort: A–Z</option></select>
+      <button id="reset-sports-filters" class="btn ghost small">Reset</button>
+    </section>
+
+    <!-- CATEGORIES GRID -->
+    <section id="categories" class="sports-grid" style="margin-top:14px">
+      <!-- Example sport cards with real images -->
+      <div class="card sport-card" data-sport="Football">
+        <img src="https://uploads.onecompiler.io/44cwzqjd6/44d3wgvqc/71B27F-1znL._AC_UF1000,1000_QL80_.jpg" alt="Football" />
+        <h4>Football</h4> 
+        <p class="small muted">Outdoor | All levels</p>
+      </div>
+      <div class="card sport-card" data-sport="Basketball">
+        <img src="https://uploads.onecompiler.io/44cwzqjd6/44d3wgvqc/basketball-thrown-metal-hoop-stunning-sunset-backdrop-basketball-thrown-metal-hoop-stunning-sunset-backdrop-316571710.webp" alt="Basketball" />
+        <h4>Basketball</h4>
+        <p class="small muted">Indoor | Beginner → Advanced</p>
+      </div>
+      <div class="card sport-card" data-sport="Tennis">
+        <img src="https://uploads.onecompiler.io/44cwzqjd6/44d3wgvqc/pngtree-3d-render-of-tennis-ball-and-two-rackets-on-court-image_3758201.jpg" alt="Tennis" />
+        <h4>Tennis</h4>
+        <p class="small muted">Outdoor | All levels</p>
+      </div>
+      <div class="card sport-card" data-sport="Cricket">
+        <img src="https://uploads.onecompiler.io/44cwzqjd6/44d3wgvqc/785276fb564cb137b9197cd77d8492a3.jpg" alt="Cricket" />
+        <h4>Cricket</h4>
+        <p class="small muted">Outdoor | Intermediate</p>
+      </div>
+    </section>
+
+    <!-- Sport quick info / sparkline & favorites -->
+    <section class="sports-personal" style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+      <div class="card" style="flex:1;min-width:240px" id="fav-sports-card">
+        <h3>Your favorites</h3>
+        <div id="favorite-sports-list" class="small muted">No favorite sports yet. Tap ♥ to add favorites.</div>
+      </div>
+      <div class="card" style="flex:2;min-width:320px">
+        <h3>Sport Stats</h3>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+          <div class="card stat"><strong id="stat-speed">0%</strong><div class="small muted">Speed</div></div>
+          <div class="card stat"><strong id="stat-stamina">0%</strong><div class="small muted">Stamina</div></div>
+          <div class="card stat"><strong id="stat-agility">0%</strong><div class="small muted">Agility</div></div>
+          <div class="card stat"><strong id="stat-matches">0</strong><div class="small muted">Matches trained</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technique (accordion) -->
+    <section style="margin-top:12px">
+      <h2>Skills & Technique</h2>
+      <div class="accordion" id="skills-accordion">
+        <details class="faq-item"><summary>Footwork & Agility</summary><div class="small muted">Ladders, cone drills, short sprints, change-of-direction drills to improve movement economy.</div></details>
+        <details class="faq-item"><summary>Shooting & Accuracy</summary><div class="small muted">Progressions for shooting mechanics, aim training, and controlled power delivery.</div></details>
+        <details class="faq-item"><summary>Balance & Stability</summary><div class="small muted">Single-leg drills, balance board ideas, core bracing for better control.</div></details>
+      </div>
+    </section>
+
+    <!-- Drills listing (per sport) -->
+    <section style="margin-top:12px">
+      <h2>Training Drills</h2>
+      <p class="muted">Select a sport card to see beginner → advanced drills. Each drill has a timer and instructions.</p>
+      <div id="drills-list" class="cards" style="margin-top:8px">
+        <div class="card drill-card" data-drill="Sprint Ladder">
+          <img src="https://images.unsplash.com/photo-1599058917210-8b82fc7c1f15?crop=entropy&cs=tinysrgb&fit=max&w=400&q=80" alt="Sprint Ladder" />
+          <h4>Sprint Ladder</h4>
+          <p class="small muted">Beginner → Advanced</p>
+        </div>
+        <div class="card drill-card" data-drill="Target Shooting">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=tinysrgb&fit=max&w=400&q=80" alt="Target Shooting" />
+          <h4>Target Shooting</h4>
+          <p class="small muted">Intermediate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Injury Prevention & Safety -->
+    <section style="margin-top:12px">
+      <h2>Injury Prevention & Recovery</h2>
+      <p class="muted">Common injuries and their prevention, stretching routines, cool-down protocols and return-to-play guidance. Always consult a clinician for acute injuries.</p>
+      <div style="margin-top:8px"><a class="btn" href="pages/about.html">Read safety guidelines</a></div>
+    </section>
+
+    <!-- Community & Motivation -->
+    <section style="margin-top:12px">
+      <h2>Community & Motivation</h2>
+      <div class="cards" style="margin-top:8px">
+        <article class="card"><strong>Athlete quote</strong><div class="small muted">"Practice consistently, not perfectly."</div></article>
+        <article class="card"><strong>Success story</strong><div class="small muted">"Local team improved fitness and reduced injuries by 30%."</div></article>
+        <article class="card"><strong>Weekly challenge</strong><div class="small muted">Join our sport-specific weekly drills challenge.</div></article>
+      </div>
+    </section>
+
+    <!-- Sticky bottom CTA for mobile -->
+    <div id="sports-sticky-cta" class="sticky-cta" style="display:none;position:fixed;left:12px;right:12px;bottom:12px;padding:12px;z-index:700">
+      <div style="display:flex;gap:8px;align-items:center;justify-content:space-between"><div style="font-weight:700">Ready to train?</div><div><button id="sticky-start" class="btn">Start Drill</button> <button id="sticky-fav" class="btn ghost">Favorites</button></div></div>
+    </div>
+
+  </main>
+
+  <!-- SPORT DETAIL MODAL -->
+  <div id="sport-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="dialog">
+      <button class="close" aria-label="Close">✕</button>
+      <div class="feature-content">
+        <h2 id="sport-title">Sport</h2>
+        <div class="feature-body" id="sport-body"></div>
+        <div class="feature-images" id="sport-images" style="margin-top:12px"></div>
+        <div class="feature-actions" style="margin-top:12px"><button id="sport-start" class="btn">Start Training</button> <button id="sport-fav" class="btn ghost">❤ Favorite</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRILL / TIMER MODAL -->
+  <div id="drill-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="dialog">
+      <button class="close" aria-label="Close">✕</button>
+      <div class="feature-content">
+        <h2 id="drill-title">Drill</h2>
+        <div id="drill-instructions" class="small muted" style="margin-top:8px"></div>
+        <div style="margin-top:12px;display:flex;gap:12px;align-items:center"><div id="drill-timer" style="font-size:24px;font-weight:700">0:00</div><button id="drill-start-btn" class="btn">Start</button><button id="drill-complete-btn" class="btn ghost" disabled>Complete</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/sports.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const b = document.getElementById('join-challenge-sports');
+      if (b) b.addEventListener('click', ()=>{
+        window.dashboard && dashboard.joinChallenge && dashboard.joinChallenge('weekly-burn-1000');
+        location.href='/pages/dashboard.html';
+      });
+
+      // hook: show modal close handlers for sport/drill modals
+      document.querySelectorAll('#sport-modal .close,#drill-modal .close').forEach(b=> b.addEventListener('click', function(){
+        const m = this.closest('.modal');
+        if (m) { m.classList.remove('show'); m.setAttribute('aria-hidden','true'); }
+      }));
+    });
+  </script>
+</body>
+</html>

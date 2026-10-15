@@ -1,0 +1,31 @@
+/* Workout detail specific styles */
+@import url('../styles.css');
+.timer{display:flex;gap:12px;align-items:center}
+.timer .btn{padding:10px 14px;border-radius:10px}
+.steps-list{margin-top:12px;padding-left:18px}
+.workout-detail-grid aside.card{padding:12px;border-radius:12px}
+.workout-detail-grid h3{margin-top:6px;margin-bottom:8px}
+.warmup li, .main-ex li, .cooldown li, .safety li{margin-bottom:8px}
+#workout-list {
+  display: flex;
+  flex-wrap: wrap;        /* screen choti ho to next line me chala jaye */
+  gap: 15px;
+}
+
+.detail-btn {
+  background: linear-gradient(135deg, #7b2ff7, #9f44ff); /* Start Timer jaisa purple */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  white-space: nowrap;   /* text break na ho */
+}
+
+.detail-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(123, 47, 247, 0.3);
+}

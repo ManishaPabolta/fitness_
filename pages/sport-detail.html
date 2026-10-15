@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sport detail</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/sports.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container">
+    <h1 id="sport-name">Sport</h1>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+      <div style="flex:1;min-width:280px">
+        <img id="sport-img" src="../assets/images/sports/football.svg" alt="" style="width:100%;border-radius:8px" />
+      </div>
+      <div style="flex:2;min-width:280px">
+        <h3 id="sport-level">Level</h3>
+        <p id="sport-desc" class="muted"></p>
+        <div style="margin-top:12px"><button id="start-training" class="btn">Start Training</button> <button id="fav-sport" class="btn ghost">❤ Favorite</button></div>
+        <h4 style="margin-top:12px">Warm-up</h4>
+        <p class="small muted">Light jog, mobility, activation</p>
+        <h4 style="margin-top:8px">Drills</h4>
+        <div id="sport-drills" class="cards" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/sports.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){ const id = new URLSearchParams(location.search).get('id'); if (!id && window.location.pathname){ // support /pages/sport-detail.html?id= or /pages/sport-detail.html#cricket
+      const hash = location.hash.slice(1); if (hash) location.search = '?id='+hash; }
+      const s = (window.sports && window.sports.SPORTS) ? window.sports.SPORTS.find(x=>x.id===id) : null; if (!s){ document.getElementById('sport-name').textContent='Not found'; return; }
+      document.getElementById('sport-name').textContent = s.title; document.getElementById('sport-level').textContent = s.level; document.getElementById('sport-desc').textContent = s.desc; document.getElementById('sport-img').src = s.img;
+      const dEl = document.getElementById('sport-drills'); (s.drills.beginner||[]).concat(s.drills.intermediate||[],s.drills.advanced||[]).forEach(d=>{ const c = document.createElement('div'); c.className='card'; c.innerHTML=`<strong>${d.name}</strong><div class=\"small muted\">${d.dur} min • ${d.intensity} • ${d.focus}</div><div style=\"margin-top:8px\"><button class=\"btn start-drill\">Start Drill</button></div>`; dEl.appendChild(c); c.querySelector('.start-drill').addEventListener('click', ()=>{ window.sports.openDrillModal(d,s.id); }); });
+      document.getElementById('fav-sport').addEventListener('click', ()=>{ const btn = document.querySelector(`.sport-card .fav[data-id=\"${s.id}\"]`); if (btn) btn.click(); else { if (!auth.isAuthenticated()){ if (confirm('Login to save favorites?')) location.href='/signup.html'; return; } const u=auth.getCurrentUser(); u.favoriteSports=u.favoriteSports||[]; if (!u.favoriteSports.includes(s.id)) u.favoriteSports.push(s.id); auth.saveCurrentUser(u); alert('Saved'); } });
+      document.getElementById('start-training').addEventListener('click', ()=>{ const first = (s.drills.beginner && s.drills.beginner[0]) || (s.drills.intermediate && s.drills.intermediate[0]); if (first) window.sports.openDrillModal(first,s.id); else alert('No drills available'); });
+    });
+  </script>
+</body>
+</html>

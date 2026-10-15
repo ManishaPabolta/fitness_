@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/contact.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container">
+    <h1>Contact us</h1>
+    <form id="contact-form">
+      <label>Name<input id="c-name" required /></label>
+      <label>Email<input id="c-email" type="email" required /></label>
+      <label>Phone<input id="c-phone" type="tel" /></label>
+      <label>Subject<input id="c-subject" required /></label>
+      <label>Message<textarea id="c-msg" required></textarea></label>
+      <button class="btn" type="submit">Send</button>
+      <p id="c-status" class="small muted"></p>
+    </form>
+    <section style="margin-top:16px">
+      <h3>Office</h3>
+      <p class="muted">Email: support@fitness.example • Phone: +91 12345 67890</p>
+    </section>
+  </main>
+  <script src="../js/auth.js"></script>
+  <script src="../js/header.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault(); document.getElementById('c-status').textContent = 'Thanks for the message!';
+    });
+  </script>
+</body>
+</html>

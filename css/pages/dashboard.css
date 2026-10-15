@@ -1,0 +1,95 @@
+
+@import url('../styles.css');
+.canvas-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.challenge-card{display:flex;flex-direction:column;padding:14px;border-radius:12px}
+.challenge-progress{margin-top:12px;background:rgba(10,20,30,0.04);border-radius:8px;padding:6px}
+.challenge-progress .progress-fill{height:10px;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+#challenges .card{padding:12px;border-radius:12px}
+.summary-cards .card{min-width:140px}
+@import url('../styles.css');
+
+/* ===== Base Styles ===== */
+.canvas-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.challenge-card {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border-radius: 12px;
+  background-color: #fff; /* optional for clarity */
+}
+
+.challenge-progress {
+  margin-top: 12px;
+  background: rgba(10, 20, 30, 0.04);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.challenge-progress .progress-fill {
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+#challenges .card {
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.summary-cards .card {
+  min-width: 140px;
+}
+
+/* ===== Responsive ===== */
+
+/* Tablets / Medium screens */
+@media (max-width: 1024px) {
+  .canvas-wrap {
+    grid-template-columns: 1fr 1fr; /* keep 2 columns, adjust gap if needed */
+    gap: 10px;
+  }
+  .summary-cards .card {
+    min-width: 120px;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .canvas-wrap {
+    grid-template-columns: 1fr; /* stack cards vertically */
+    gap: 10px;
+  }
+  .challenge-card {
+    padding: 12px;
+  }
+  .summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .summary-cards .card {
+    flex: 1 1 48%; /* two cards per row */
+    min-width: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .canvas-wrap {
+    grid-template-columns: 1fr; /* single column */
+    gap: 8px;
+  }
+  .challenge-card {
+    padding: 10px;
+  }
+  .summary-cards .card {
+    flex: 1 1 100%; /* full width cards */
+  }
+}

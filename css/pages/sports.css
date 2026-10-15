@@ -1,0 +1,64 @@
+/* Sports page overrides */
+@import url('../styles.css');
+
+.sports-hero{padding:32px;border-radius:14px;color:#fff;background-size:cover;background-position:center;min-height:260px;display:flex;align-items:center;box-shadow:0 12px 40px rgba(11,22,34,0.06);position:relative;overflow:hidden}
+.sports-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.25),rgba(2,6,23,0.45));pointer-events:none;border-radius:14px}
+.sports-hero .hero-inner{max-width:960px;position:relative;z-index:2}
+.sports-hero .hero-ctas .btn{margin-right:8px}
+
+.sports-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.sport-card{background:var(--surface);padding:10px;border-radius:12px;cursor:pointer;border:1px solid rgba(10,20,30,0.04);box-shadow:var(--card-shadow);transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease,filter .12s ease;opacity:0;transform:translateY(8px)}
+.sport-card.appear{opacity:1;transform:none}
+.sport-card:hover{transform:translateY(-8px);box-shadow:0 18px 48px rgba(12,20,40,0.10)}
+.sport-card .img-wrap{overflow:hidden;border-radius:10px}
+.sport-card img{width:100%;height:140px;object-fit:cover;display:block}
+.card-body{padding:12px 6px 8px}
+.sport-card h3{margin:6px 0 8px;font-size:18px}
+.level-badge{display:inline-block;padding:6px 8px;border-radius:999px;background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(6,182,212,0.08));color:var(--accent);font-weight:700;margin-left:8px;font-size:12px}
+
+
+.btn.fav{border-radius:999px;padding:8px 10px;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center}
+.btn.fav.favorited{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none;box-shadow:0 8px 20px rgba(124,58,237,0.12)}
+.btn.fav:focus{outline:3px solid rgba(124,58,237,0.12);outline-offset:2px}
+
+.meta-row .btn{min-width:82px}
+
+
+.sport-card:focus-within{box-shadow:0 20px 50px rgba(12,20,40,0.12);transform:translateY(-6px)}
+.meta-row{display:flex;gap:8px;align-items:center}
+.meta-row .small{color:var(--muted)}
+
+
+.pop-meter{width:120px;height:8px;background:#f0f2f5;border-radius:8px;overflow:hidden;border:1px solid rgba(10,20,30,0.03)}
+.pop-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:50%;transition:width .4s ease}
+
+
+.sports-personal .card{display:flex;flex-direction:column}
+
+
+#drills-list .card{padding:12px;border-radius:10px}
+#drills-list .card .btn{min-width:110px}
+
+
+#sport-modal .dialog,#drill-modal .dialog{width:min(760px,94%);background:var(--surface);border-radius:12px;padding:14px;box-shadow:0 18px 46px rgba(12,20,40,0.10)}
+#sport-modal img{max-width:100%;border-radius:8px}
+#drill-modal #drill-timer{font-family:monospace;background:linear-gradient(90deg,rgba(124,58,237,0.06),rgba(6,182,212,0.03));padding:6px 10px;border-radius:8px}
+
+#sports-sticky-cta{border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+#sports-sticky-cta .btn{background:rgba(255,255,255,0.12);color:#fff;border:none}
+
+
+.sport-card .btn.btn-sm{padding:6px 8px;font-size:14px;border-radius:8px}
+
+@media(max-width:700px){
+  .sports-grid{display:flex;gap:12px;overflow:auto;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .sport-card{min-width:220px;scroll-snap-align:center}
+  .sports-hero{min-height:200px;padding:18px}
+  .sports-personal{flex-direction:column}
+}
+
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sport-card.appear{animation:fadeInUp .4s ease forwards}
+
+

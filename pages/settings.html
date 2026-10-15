@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/settings.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1>Settings</h1>
+
+    <section class="card" style="padding:12px">
+      <h3>Appearance</h3>
+      <button id="toggle-theme" class="btn">Toggle Dark/Light</button>
+    </section>
+
+    <section class="card" style="padding:12px">
+      <h3>Language & Notifications</h3>
+      <label class="small"><input id="lang-select" type="checkbox" /> Enable language toggle (placeholder)</label>
+      <label class="small"><input id="notify-toggle" type="checkbox" checked /> Enable notifications</label>
+    </section>
+
+    <section class="card" style="padding:12px;margin-top:12px">
+      <h3>Danger zone</h3>
+      <button id="clear-storage" class="btn">Clear Storage</button>
+    </section>
+  </main>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+   
+      const btn = document.getElementById('toggle-theme');
+      function sync() { btn.textContent = document.body.classList.contains('dark') ? 'Light mode' : 'Dark mode'; }
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        sync();
+      });
+      
+      const stored = localStorage.getItem('theme'); if (stored === 'dark') document.body.classList.add('dark'); sync();
+
+      document.getElementById('clear-storage').addEventListener('click', () => { if (confirm('Clear all localStorage?')) { localStorage.clear(); alert('Cleared. Reloading.'); location.reload(); } });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+    <filter id="f2"><feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#06202a" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect rx="20" width="100%" height="100%" fill="#fff"/>
+  <g transform="translate(40,40)" filter="url(#f2)">
+    <rect x="0" y="0" width="520" height="320" rx="16" fill="url(#g2)" opacity="0.08"/>
+  </g>
+  <g transform="translate(80,90)">
+    <rect x="0" y="0" width="420" height="220" rx="12" fill="#fff"/>
+    <text x="24" y="40" font-family="Poppins,Inter" font-weight="700" font-size="22" fill="#082032">Full Body Strength</text>
+    <text x="24" y="72" font-family="Inter" font-size="13" fill="#5b6b75">35 mins • Intermediate • Dumbbells</text>
+    <g transform="translate(24,112)">
+      <rect x="0" y="0" width="80" height="32" rx="12" fill="#7c3aed" />
+      <text x="14" y="22" font-family="Inter" font-size="13" fill="#fff">Start</text>
+    </g>
+  </g>
+  <!-- simple dumbbell icon -->
+  <g transform="translate(420,60)">
+    <rect x="0" y="40" width="120" height="16" rx="6" fill="#06b6d4" />
+    <rect x="-8" y="28" width="24" height="48" rx="6" fill="#7c3aed" />
+    <rect x="104" y="28" width="24" height="48" rx="6" fill="#7c3aed" />
+  </g>
+</svg>

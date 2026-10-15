@@ -1,0 +1,126 @@
+/* Signup page styles */
+@import url('../styles.css');
+.auth-page{background:linear-gradient(180deg, #fff, #f9f9f9);padding:18px;border-radius:8px}
+/* signup.css */
+
+/* Container for the signup form */
+.auth-page {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background-color: #1e293b; /* dark card background */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+/* Form heading */
+.auth-page h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+/* Input labels */
+.auth-page label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+/* Input fields */
+.auth-page input[type="text"],
+.auth-page input[type="email"],
+.auth-page input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 5px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.auth-page input:focus {
+  border-color: #38bdf8; /* blue border on focus */
+}
+
+/* Password field wrapper */
+.pw-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Show/Hide button */
+.pw-toggle {
+  background: #334155;
+  border: none;
+  color: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s;
+}
+
+.pw-toggle:hover {
+  background: #475569;
+}
+
+/* Small muted text */
+.auth-page .small.muted {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+/* Main submit button */
+.auth-page .btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6; /* bright blue */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.auth-page .btn:hover {
+  background-color: #2563eb;
+}
+
+/* Links */
+.auth-page a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.auth-page a:hover {
+  text-decoration: underline;
+}
+
+/* Message for errors or success */
+.auth-page .msg {
+  margin-top: 15px;
+  text-align: center;
+  color: #f87171; /* red for errors */
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 30px 20px;
+    margin: 30px 10px;
+  }
+}

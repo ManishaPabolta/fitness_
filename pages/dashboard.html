@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/dashboard.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1>Dashboard</h1>
+    <p class="muted">Your personalised overview: workouts, calories, and progress.</p>
+
+    <section class="summary-cards">
+      <div class="card"><strong id="s-weight">--</strong><div class="small muted">Current weight</div></div>
+      <div class="card"><strong id="s-streak">0</strong><div class="small muted">Workout streak (days)</div></div>
+      <div class="card"><strong id="s-cal">--</strong><div class="small muted">Calories burned today</div></div>
+    </section>
+
+    <section class="dashboard-workouts">
+      <h2>Recent workouts</h2>
+      <ul class="history-list"></ul>
+
+      <h2>Weekly Plan</h2>
+      <div class="weekly-plan"></div>
+
+      <h2>Weekly Challenge</h2>
+      <div id="challenges" class="cards">
+        <!-- populated by dashboard.js -->
+      </div>
+
+      <h2>Progress Charts</h2>
+      <div class="canvas-wrap">
+        <canvas id="weightChart" width="400" height="200" aria-label="Weight progress chart"></canvas>
+        <canvas id="workoutChart" width="400" height="200" aria-label="Workouts per day chart"></canvas>
+      </div>
+
+      <h2>Achievements</h2>
+      <div class="cards"><article class="card">No achievements yet — complete 3 workouts in a week to earn a badge.</article></div>
+    </section>
+  </main>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/workouts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/charts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // protect this page
+      auth.requireAuth();
+
+      const user = auth.getCurrentUser();
+      if (user) {
+        console.log('Dashboard loaded for', user.email);
+        // render history and weekly plan
+        workouts.renderHistory();
+        workouts.renderWeeklyPlan();
+        // render charts
+        if (window.renderCharts) renderCharts();
+      }
+    });
+  </script>
+</body>
+</html>

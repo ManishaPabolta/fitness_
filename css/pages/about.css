@@ -1,0 +1,4 @@
+/* About page styles */
+@import url('../styles.css');
+#timeline li{padding:12px}
+.tagline{font-size:18px}

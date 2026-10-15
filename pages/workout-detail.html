@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workout Detail - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/workout-detail.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1 id="w-title">Workout Detail</h1>
+    <p id="w-meta" class="muted">Duration: <span id="w-duration">-</span> • Level: <span id="w-level">-</span></p>
+
+    <p>Calories est.: <strong><span id="cal-est">-</span></strong></p>
+
+    <div class="timer">
+      <button id="start-timer" class="btn">Start Timer</button>
+      <span id="timer-val">00:00</span>
+    </div>
+
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <button class="btn" id="fav-btn">❤ Add to favorites</button>
+      <a class="btn ghost" id="plan-btn" href="#">Add to plan</a>
+    </div>
+
+    <section class="workout-steps">
+      <h2>Steps</h2>
+      <ol class="steps-list" aria-label="Steps to perform workout"></ol>
+      <div class="intervals" aria-hidden="false"></div>
+    </section>
+    <div id="workout-detail"></div>
+
+<div id="workout-list">
+
+  <!-- Morning HIIT -->
+  <button class="detail-btn" data-workout="hiit-1">
+    Morning HIIT 
+  </button>
+
+  <!-- Full Body Strength -->
+  <button class="detail-btn" data-workout="strength-1">
+    Full Body Strength  
+  </button>
+
+  <!-- Morning Yoga -->
+  <button class="detail-btn" data-workout="yoga-1">
+    Morning Yoga
+  </button>
+
+  <!-- Full Cardio Blast -->
+  <button class="detail-btn" data-workout="cardio-1">
+    Full Cardio Blast 30-Exercise Routine
+  </button>
+
+  <!-- Ultimate 30-Exercise Strength -->
+  <button class="detail-btn" data-workout="strength-1">
+     Strength Routiner
+  </button>
+
+  <!-- 30-Exercise Flexibility -->
+  <button class="detail-btn" data-workout="flexibility-1">
+     Flexibility & Stretching Routine
+  </button>
+
+  <!-- 30-Exercise Balance & Stability -->
+  <button class="detail-btn" data-workout="balance-1">
+    Balance & Stability Routine
+  </button>
+
+  <!-- 30-Exercise Functional -->
+  <button class="detail-btn" data-workout="functional-1">
+     Functional Training Routine
+  </button>
+
+  <!-- Ultimate 20-Exercise HIIT -->
+  <button class="detail-btn" data-workout="hiit-2">
+    Exercise HIIT
+  </button>
+
+</div>
+
+<div id="workout-detail"></div>
+
+
+    <section class="workout-detail-grid" style="margin-top:14px;display:grid;grid-template-columns:1fr 280px;gap:16px;align-items:start">
+      <div>
+      
+        <ul class="warmup"></ul>
+
+       
+        <ul class="main-ex"></ul>
+
+        
+        <ul class="cooldown"></ul>
+
+        <ul class="safety"></ul>
+      </div>
+
+     
+    </section>
+  </main>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/workouts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      if (window.workouts && typeof window.workouts.loadWorkoutDetail === 'function') window.workouts.loadWorkoutDetail();
+    });
+  </script>
+</body>
+</html>

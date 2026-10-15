@@ -1,0 +1,6 @@
+/* Profile page styles */
+@import url('../styles.css');
+.profile-photo img{border-radius:14px;width:200px;height:200px;object-fit:cover;border:1px solid rgba(10,20,30,0.04)}
+.profile form label{display:block;margin-bottom:10px}
+.profile form input, .profile form select{padding:10px;border-radius:10px;border:1px solid rgba(10,20,30,0.06);width:100%;background:transparent}
+.profile .bmi{margin-top:8px;font-weight:700;color:var(--accent)} 

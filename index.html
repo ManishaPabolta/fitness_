@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fitness Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages/index.css" />
+ 
+   <link rel="stylesheet" href="css/pages/header.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+   
+   <section class="hero hero-large" style="
+background-image:url('https://uploads.onecompiler.io/44cwzqjd6/44cwzqtvp/jebson-118-min.jpg')">
+
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <h1 class="hero-title">Fitness + Sports — Move Better, Live Better</h1>
+        <p class="hero-sub">Big, bold, evidence-led training and nutrition designed for people at every level. Build strength, increase endurance, and enjoy a healthier lifestyle.</p>
+
+        <div class="hero-ctas" style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <a id="main-cta" class="btn btn-cta" href="pages/signup.html">Start Your Fitness Journey</a>
+          <a class="btn ghost" href="pages/workouts.html">Explore Workouts</a>
+          <button id="join-challenge-home" class="btn ghost">Join Weekly Challenge</button>
+        </div>
+
+        <div class="hero-meta" style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div class="stat card"><strong class="stat-val" data-target="1200">0</strong><div class="small muted">Users</div></div>
+          <div class="stat card"><strong class="stat-val" data-target="520">0</strong><div class="small muted">Workouts</div></div>
+          <div class="stat card"><strong class="stat-val" data-target="35">0</strong><div class="small muted">Sports</div></div>
+        </div>
+
+        <div class="hero-animated" style="margin-top:12px">
+          <span class="muted">Animated inline: </span><span id="hero-anim">Train smarter.</span>
+        </div>
+
+        <div class="hero-extras" style="margin-top:14px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+          <aside class="card workout-of-day" id="workout-of-day" aria-label="Workout of the day">
+            <img src="https://uploads.onecompiler.io/44cwzqjd6/44cwzqtvp/istockphoto-1057146526-612x612.jpg" alt="Workout of the day" loading="lazy" />
+            <div style="margin-top:8px">
+              <h4 id="wod-title">Workout of the Day</h4>
+              <p class="small muted" id="wod-meta">20 min • Beginner • Full body</p>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                <button class="btn" id="wod-start">Quick Start</button>
+                <button class="btn ghost" id="wod-save">Save</button>
+                <a class="btn small outline" id="wod-details" href="pages/workout-detail.html">Details</a>
+              </div>
+            </div>
+          </aside>
+          <aside class="card micro-challenge" id="micro-challenge" aria-label="Micro challenge" style="min-width:220px;padding:12px">
+            <strong>Micro Challenge</strong>
+            <p class="small muted">Do a 5‑minute mobility flow today</p>
+            <div class="progress" style="margin-top:8px;width:160px;background:#f2f4f5;border-radius:6px;height:10px"><div id="micro-bar" style="width:40%;height:100%;background:var(--accent);border-radius:6px"></div></div>
+            <div style="margin-top:8px"><button class="btn" id="micro-join">Join</button> <button class="btn ghost" id="micro-later">Later</button></div>
+            <div class="small muted" style="margin-top:8px" id="micro-count">12 people joined</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- FEATURE BAR -->
+    <section class="features-bar" aria-hidden="false">
+  <div class="container"
+       style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+    <!-- WORKOUTS -->
+    <button class="feature feature-btn" data-feature="workouts" aria-controls="feature-modal" title="Workouts">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=300&q=80"
+        alt="Workouts">
+      <div class="small">Workouts</div>
+    </button>
+    <!-- NUTRITION -->
+    <button class="feature feature-btn" data-feature="nutrition" aria-controls="feature-modal" title="Nutrition">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=300&q=80"
+        alt="Nutrition">
+      <div class="small">Nutrition</div>
+    </button>
+    <!-- SPORTS -->
+    <button class="feature feature-btn" data-feature="sports" aria-controls="feature-modal" title="Sports">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=300&q=80"
+        alt="Sports">
+      <div class="small">Sports</div>
+    </button>
+ <!-- PROGRESS -->
+<button class="feature feature-btn" data-feature="progress" aria-controls="feature-modal" title="Progress">
+  <img class="feat-icon"
+    src="https://picsum.photos/seed/progress/100/100"
+    alt="Progress tracking">
+  <div class="small">Progress</div>
+</button>
+<!-- SAFETY -->
+<button class="feature feature-btn" data-feature="safety" aria-controls="feature-modal" title="Safety">
+  <img class="feat-icon"
+    src="https://picsum.photos/seed/safety/100/100"
+    alt="Safety">
+  <div class="small">Safety</div>
+</button>
+    <!-- PRIVACY -->
+    <button class="feature feature-btn" data-feature="privacy" aria-controls="feature-modal" title="Privacy">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=300&q=80"
+        alt="Privacy">
+      <div class="small">Privacy</div>
+    </button>
+    <!-- OFFLINE -->
+    <button class="feature feature-btn" data-feature="offline" aria-controls="feature-modal" title="Offline">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80"
+        alt="Offline access">
+      <div class="small">Offline</div>
+    </button>
+    <!-- BADGES -->
+    <button class="feature feature-btn" data-feature="badges" aria-controls="feature-modal" title="Badges">
+      <img class="feat-icon"
+        src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=300&q=80"
+        alt="Badges">
+      <div class="small">Badges</div>
+    </button>
+  </div>
+</section>
+    <!-- Feature detail modal (populated dynamically) -->
+    <div id="feature-modal" class="modal feature-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="dialog" role="document">
+        <button class="close feature-close" aria-label="Close feature details">✕</button>
+        <div class="feature-content">
+          <h2 id="feature-title"></h2>
+          <div class="feature-body"></div>
+          <div class="feature-images"></div>
+          <div class="feature-actions" style="margin-top:12px"><a id="feature-link" class="btn" href="#">Learn more</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- TRUST & STATS -->
+    <section class="trust-stats">
+      <h2>Trust & Stats</h2>
+      <p class="muted">Proven programs, certified contributors, and data you can use — even when you're offline. We keep the system simple and local by using browser storage where appropriate.</p>
+      <div class="cards" style="margin-top:12px">
+        <article class="card stat"><strong class="stat-val" data-target="1200">0</strong><div class="small muted">Users</div></article>
+        <article class="card stat"><strong class="stat-val" data-target="520">0</strong><div class="small muted">Workouts</div></article>
+        <article class="card stat"><strong class="stat-val" data-target="35">0</strong><div class="small muted">Sports</div></article>
+        <article class="card"><strong>Evidence</strong><div class="small muted">Certified & evidence-based programs</div></article>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <div class="certs small muted">🏅 <strong>Certifications:</strong> NSCA • ISSN • NASM</div>
+        <div class="badge small muted">🔒 Safety-first</div>
+        <div class="badge small muted">📁 LocalStorage powered</div>
+      </div>
+    </section>
+    <!-- FEATURED WORKOUTS -->
+  <section class="featured-workouts">
+  <h2>Featured Workouts</h2>
+  <p class="muted">
+    Hand-picked workouts across cardio, strength and flexibility.
+    Filter and click any workout to see full details.
+  </p>
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="chip active" data-filter="All">All</button>
+    <button class="chip" data-filter="Cardio">Cardio</button>
+    <button class="chip" data-filter="Strength">Strength</button>
+    <button class="chip" data-filter="Yoga">Yoga</button>
+  </div>
+  <!-- WORKOUT CARDS -->
+  <div class="workout-list" id="workoutList"></div>
+</section>
+<!-- MODAL -->
+<!-- <div class="modal hidden" id="workoutModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <div class="gallery" id="modalGallery"></div>
+    <div class="steps" id="modalSteps"></div>
+  </div>
+</div> -->
+      <div style="margin-top:12px"><a class="btn ghost" href="pages/workouts.html">View all workouts</a></div>
+    </section>
+    <!-- SPORTS -->
+    <section class="sports-preview">
+      <h2>Explore Sports</h2>
+      <p class="muted">Learn rules, drills, equipment needs and injury prevention for popular sports — ideal for beginners and coaches.</p>
+      <div class="tabs" style="margin-top:8px">
+        <button class="chip" data-tab="All">All</button>
+        <button class="chip" data-tab="Team">Team</button>
+        <button class="chip" data-tab="Racket">Racket</button>
+        <button class="chip" data-tab="Combat">Combat</button>
+      </div>
+      <div class="cards" style="margin-top:12px">
+        <article class="card sport-card" data-category="Team"><img src="assets/images/sport-1.svg" alt="Football" loading="lazy" /><strong>Football</strong><div class="small muted">Drills, rules & beginner guide</div>
+          <div class="sport-details small muted">Rules: 11 players per side • Drills: passing, shooting • Equipment: boots, ball • Safety: shin guards</div>
+        </article>
+        <article class="card sport-card" data-category="Team"><img src="assets/images/sport-1.svg" alt="Cricket" loading="lazy" /><strong>Cricket</strong><div class="small muted">Batting & fielding basics</div>
+          <div class="sport-details small muted">Rules: 11 players • Drills: batting nets, throwing drills • Equipment: bat, pads • Safety: helmets</div>
+        </article>
+        <article class="card sport-card" data-category="Racket"><img src="assets/images/sport-1.svg" alt="Badminton" loading="lazy" /><strong>Badminton</strong><div class="small muted">Footwork & agility</div>
+          <div class="sport-details small muted">Rules: singles/doubles • Drills: footwork ladders • Equipment: racket • Safety: warm-up</div>
+        </article>
+      </div>
+      <div style="margin-top:8px"><a class="btn ghost" href="pages/sports.html">Explore sports</a></div>
+    </section>
+    <!-- DIET PREVIEW -->
+    <section class="diet-preview">
+      <h2>Diet & Nutrition</h2>
+      <p class="muted">Sample plans, macronutrient breakdowns, hydration tips and quick recipes to support your training.</p>
+      <div class="filters" style="margin-top:8px">
+        <button class="chip active" data-filter="All">All</button>
+        <button class="chip" data-filter="Veg">Veg</button>
+        <button class="chip" data-filter="NonVeg">Non-veg</button>
+      </div>
+      <div class="cards" style="margin-top:12px">
+        <article class="card"><img src="assets/images/recipe-1.svg" alt="Recipe" loading="lazy" /><strong>Vegetarian Plan</strong><div class="small muted">~1800 kcal balanced meals</div></article>
+        <article class="card"><img src="assets/images/recipe-1.svg" alt="Recipe" loading="lazy" /><strong>High-protein Plan</strong><div class="small muted">2200 kcal with higher protein</div></article>
+      </div>
+      <div style="margin-top:8px"><a class="btn" href="pages/diet.html">Go to Nutrition</a> <a class="btn ghost" href="pages/profile.html">BMI Calculator</a></div>
+    </section>
+    <section class="recipes-carousel" aria-label="Featured recipes">
+      <h2>Featured Recipes</h2>
+      <div class="recipes-track" style="display:flex;gap:12px;overflow:auto;padding:12px 0">
+        <article class="card recipe-card"><img src="assets/images/home/recipe-1.svg" alt="Berry Oats" loading="lazy" /><strong>Berry Oats</strong><div class="small muted">320 kcal • 10 min</div></article>
+        <article class="card recipe-card"><img src="assets/images/home/recipe-2.svg" alt="Grilled Chicken Bowl" loading="lazy" /><strong>Grilled Chicken Bowl</strong><div class="small muted">450 kcal • 20 min</div></article>
+        <article class="card recipe-card"><img src="assets/images/home/recipe-3.svg" alt="Green Smoothie" loading="lazy" /><strong>Green Smoothie</strong><div class="small muted">210 kcal • 5 min</div></article>
+      </div>
+      <div style="margin-top:8px"><a class="btn" href="pages/diet.html">See all recipes</a></div>
+    </section>
+    <!-- USER PROGRESS (shown if logged-in) -->
+    <section class="user-progress" id="user-progress." style="display:none;margin-top:12px">
+      <h2 id="mini-greet">Your quick progress</h2>
+      <p class="muted">Mini dashboard preview — see your streaks, recent workouts and quick progress bars.</p>
+      <div class="summary-cards" style="margin-top:12px">
+        <div class="card">Streak: <strong id="mini-streak">0</strong> days</div>
+        <div class="card">Weekly completion: <strong id="mini-complete">0%</strong>
+          <div class="progress"><div id="mini-complete-bar" style="width:0;height:8px;border-radius:6px;background:var(--accent);margin-top:8px"></div></div>
+        </div>
+        <div class="card">Calories today: <strong id="mini-cals">0 kcal</strong></div>
+        <div class="card">Weight (past):<canvas id="mini-sparkline" width="240" height="60" aria-label="Weight progress sparkline"></canvas><div class="small muted">Last 7 entries</div></div>
+      </div>
+      <div style="margin-top:8px"><a class="btn" href="pages/dashboard.html">Go to Dashboard</a></div>
+    </section>
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose">
+      <h2>Why choose us</h2>
+      <div class="cards" style="margin-top:12px">
+        <article class="card"><strong>Evidence-based</strong><div class="small muted">Programs built on peer-reviewed guidance and practitioner input</div></article>
+        <article class="card"><strong>Beginner-friendly</strong><div class="small muted">Step-by-step plans to build confidence and consistency</div></article>
+        <article class="card"><strong>Offline & Private</strong><div class="small muted">Use LocalStorage; your data stays on your device</div></article>
+        <article class="card"><strong>Performance UI</strong><div class="small muted">Lightweight, responsive and polished for mobile devices</div></article>
+      </div>
+    </section>
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" aria-label="User testimonials">
+      <h2>Testimonials</h2>
+      <div class="test-carousel" id="test-carousel">
+        <div class="test-slide" data-stars="5"><img src="assets/images/testimonial-1.svg" alt="Aarti" loading="lazy" /><div class="stars">★★★★★</div><blockquote>"I lost 8kg in 3 months and feel stronger." <cite>— Aarti</cite></blockquote></div>
+        <div class="test-slide" data-stars="4"><img src="assets/images/testimonial-1.svg" alt="Rohit" loading="lazy" /><div class="stars">★★★★☆</div><blockquote>"The progress tracker kept me honest and consistent." <cite>— Rohit</cite></blockquote></div>
+        <div class="test-slide">
+          <div class="before-after" title="Before / After (demo)">
+            <div class="before" style="background-image:url('assets/images/testimonial-1.svg')"></div>
+            <div class="after" style="background-image:url('assets/images/testimonial-1.svg')"></div>
+            <div class="handle" role="slider" tabindex="0" aria-label="Compare before and after"></div>
+          </div>
+          <blockquote class="small muted">Before / After slider — drag or click to compare (demo)</blockquote>
+        </div>
+      </div>
+    </section>
+    <!-- PHOTO GALLERY -->
+    <section class="photo-gallery">
+      <h2>Real moments</h2>
+      <p class="muted">Photos from our community and sample assets — replace these with real photos anytime.</p>
+      <div class="gallery-grid" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <img src="assets/images/home/gallery-1.svg" alt="Runner" loading="lazy" />
+        <img src="assets/images/home/gallery-2.svg" alt="Yoga" loading="lazy" />
+        <img src="assets/images/home/gallery-3.svg" alt="Nutrition" loading="lazy" />
+        <img src="assets/images/home/gallery-4.svg" alt="Group session" loading="lazy" />
+      </div>
+    </section>
+    <!-- BADGES -->
+    <section class="badges">
+      <h2>Achievements & Badges</h2>
+      <div class="cards badges-list" style="margin-top:12px">
+        <article class="card badge locked" data-badge="daily-streak">Daily Streak</article>
+        <article class="card badge locked" data-badge="weekly-goal">Weekly Goal</article>
+        <article class="card badge locked" data-badge="workout-master">Workout Master</article>
+        <article class="card badge locked" data-badge="nutrition-champ">Nutrition Champ</article>
+      </div>
+    </section>
+    <!-- NEWSLETTER -->
+    <section class="newsletter-large" style="margin-top:12px">
+      <h2>Join our newsletter & community</h2>
+      <p class="muted">Weekly tips, challenges, and recipes delivered to your inbox.</p>
+      <form id="newsletter-form-main" style="margin-top:8px">
+        <label>Email<input id="n-email-main" type="email" required placeholder="you@example.com" /></label>
+        <button class="btn" type="submit">Subscribe</button>
+        <p id="n-msg-main" class="small muted"></p>
+      </form>
+      <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+        <div class="social-icons small muted">Follow: • <a href="#">Instagram</a> • <a href="#">Facebook</a></div>
+        <a class="btn ghost" href="#">Join WhatsApp (dummy)</a>
+      </div>
+    </section>
+<div class="workout-modal hidden" id="workoutModal">
+  <div class="modal-content">
+    <button id="closeModal">✕</button>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <h4>How to do</h4>
+    <ul id="modalSteps"></ul>
+    <div id="modalGallery" class="modal-gallery"></div>
+  </div>
+</div>
+  </main>
+  <footer class="site-footer">
+    <div class="container" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center">
+      <div class="footer-left">
+        <strong>Fitness</strong>
+        <div class="footer-links">
+          <a href="/pages/about.html">About</a>
+          <a href="/pages/faq.html">FAQ</a>
+          <a href="/pages/contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-center small muted">Contact: <a href="mailto:hello@fitness.app">hello@fitness.app</a> • Privacy • Terms</div>
+      <div class="footer-right" style="display:flex;gap:8px;align-items:center">
+        <label class="small">Theme: <button id="footer-theme-toggle" class="btn">🌓</button></label>
+        <label class="small">Lang: <select id="footer-lang"><option value="en">EN</option><option value="hi">HI</option></select></label>
+      </div>
+    </div>
+    <hr />
+    <div class="container" style="text-align:center;margin-top:8px"><em class="muted">"Small steps every day — consistency beats intensity."</em></div>
+    <p style="text-align:center;margin-top:10px">&copy; 2026 Fitness App</p>
+  </footer>
+  <script src="js/auth.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/workouts.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/main.js"></script>
+  <script src="features.js"></script>
+  <script>
+        document.addEventListener('DOMContentLoaded', function(){ const b = document.getElementById('join-challenge-home'); if (b) b.addEventListener('click', ()=>{ window.dashboard && dashboard.joinChallenge && dashboard.joinChallenge('weekly-burn-1000'); location.href='/pages/dashboard.html'; }); });
+// Animate stats counter
+document.querySelectorAll('.stat-val').forEach(stat => {
+  const target = +stat.dataset.target;
+  let count = 0;
+  const increment = target / 100; // 100 frames animation
+  const updateCounter = () => {
+    count += increment;
+    if (count < target) {
+      stat.textContent = Math.floor(count);
+      requestAnimationFrame(updateCounter);
+    } else {
+      stat.textContent = target;
+    }
+  };
+  updateCounter();
+});
+// Animated hero text loop
+const heroTexts = ["Train smarter.", "Move better.", "Live stronger."];
+let heroIndex = 0;
+const heroAnim = document.getElementById('hero-anim');
+setInterval(() => {
+  heroIndex = (heroIndex + 1) % heroTexts.length;
+  heroAnim.textContent = heroTexts[heroIndex];
+}, 2500);
+// Workout of the Day buttons
+document.getElementById('wod-start').addEventListener('click', () => {
+  alert("Starting the workout!");
+});
+document.getElementById('wod-save').addEventListener('click', () => {
+  alert("Workout saved!");
+});
+document.getElementById('wod-details').addEventListener('click', (e) => {
+  e.preventDefault();
+  alert("Redirecting to workout details page...");
+  window.location.href = "pages/workout-detail.html";
+});
+// Micro challenge buttons
+const microBar = document.getElementById('micro-bar');
+const microCount = document.getElementById('micro-count');
+let joined = 12;
+
+document.getElementById('micro-join').addEventListener('click', () => {
+  joined++;
+  microCount.textContent = `${joined} people joined`;
+  microBar.style.width = `${Math.min(joined * 5, 100)}%`;
+  alert("You joined the micro challenge!");
+});
+
+document.getElementById('micro-later').addEventListener('click', () => {
+  alert("Maybe next time!");
+});
+// Scroll indicator smooth scroll
+document.querySelector('.scroll-indicator').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('#trust-stats').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

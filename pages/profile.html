@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile - Fitness</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/pages/profile.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1>Your Profile</h1>
+
+    <section class="profile">
+      <div class="profile-photo">
+        <img id="profile-img" src="../assets/images/avatar-placeholder.svg" alt="profile" />
+        <input type="file" id="photo-input" accept="image/*" aria-label="Upload profile photo" />
+      </div>
+
+      <form id="profile-form">
+        <label>Full name<input id="p-name" required /></label>
+        <label>Email<input id="p-email" disabled /></label>
+        <label>Age<input id="p-age" type="number" min="1" /></label>
+        <label>Gender<select id="p-gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></label>
+        <label>Height (cm)<input id="p-height" type="number" min="1" /></label>
+        <label>Weight (kg)<input id="p-weight" type="number" min="1" /></label>
+
+        <label>Fitness goal<select id="p-goal"><option value="">Select</option><option>Lose</option><option>Gain</option><option>Maintain</option></select></label>
+        <label>Activity level<select id="p-activity"><option value="">Select</option><option>Sedentary</option><option>Light</option><option>Moderate</option><option>Active</option></select></label>
+
+        <div class="bmi">BMI: <strong id="bmi-val">-</strong></div>
+        <div>Profile completion: <strong id="profile-completion">0%</strong></div>
+
+        <button class="btn" type="submit">Save Profile</button>
+        <p id="profile-msg" class="msg"></p>
+
+        <hr style="margin:12px 0" />
+        <h3>Account</h3>
+        <label>Change password<input id="p-password" type="password" placeholder="New password" /></label>
+        <button id="save-account" class="btn">Save Account</button>
+
+        <h3>Achievements</h3>
+        <div class="cards"><article class="card">No badges yet — complete your first week!</article></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      auth.requireAuth();
+      const user = auth.getCurrentUser();
+      if (!user) return;
+
+      const fields = ['name','email','age','gender','height','weight','goal','activity','photo'];
+      const map = {
+        name: document.getElementById('p-name'),
+        email: document.getElementById('p-email'),
+        age: document.getElementById('p-age'),
+        gender: document.getElementById('p-gender'),
+        height: document.getElementById('p-height'),
+        weight: document.getElementById('p-weight'),
+        goal: document.getElementById('p-goal'),
+        activity: document.getElementById('p-activity')
+      };
+
+      // populate
+      map.name.value = user.name || '';
+      map.email.value = user.email || '';
+      map.age.value = user.age || '';
+      map.gender.value = user.gender || '';
+      map.height.value = user.height || '';
+      map.weight.value = user.weight || '';
+      map.goal.value = user.goal || '';
+      map.activity.value = user.activity || '';
+      if (user.photo) document.getElementById('profile-img').src = user.photo;
+
+      function calcBMI() {
+        const h = Number(map.height.value);
+        const w = Number(map.weight.value);
+        if (h > 0 && w > 0) {
+          const bmi = (w / ((h/100)*(h/100))).toFixed(1);
+          document.getElementById('bmi-val').textContent = bmi;
+          return bmi;
+        }
+        document.getElementById('bmi-val').textContent = '-';
+        return null;
+      }
+
+      function completionPercent() {
+        let done = 0;
+        fields.forEach(f => { if (user[f] && user[f] !== '') done++; });
+        // approximate out of 9 fields
+        const pct = Math.round((done / 9) * 100);
+        document.getElementById('profile-completion').textContent = pct + '%';
+      }
+
+      // photo upload
+      document.getElementById('photo-input').addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById('profile-img').src = e.target.result;
+          user.photo = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // recalc when height/weight changed
+      map.height.addEventListener('input', () => { calcBMI(); });
+      map.weight.addEventListener('input', () => { calcBMI(); });
+
+      // save
+      document.getElementById('profile-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        // update user object
+        user.name = map.name.value.trim();
+        user.age = map.age.value.trim();
+        user.gender = map.gender.value;
+        user.height = map.height.value.trim();
+        user.weight = map.weight.value.trim();
+        user.goal = map.goal.value;
+        user.activity = map.activity.value;
+
+        auth.saveCurrentUser(user);
+        // notify header to re-render user info
+        document.dispatchEvent(new CustomEvent('user:updated'));
+        completionPercent();
+        document.getElementById('profile-msg').textContent = 'Profile saved.';
+        setTimeout(() => document.getElementById('profile-msg').textContent = '', 3000);
+      });
+
+      calcBMI(); completionPercent();
+    });
+  </script>
+</body>
+</html>
